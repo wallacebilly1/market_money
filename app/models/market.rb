@@ -4,5 +4,12 @@ class Market < ApplicationRecord
 
   def vendor_count
     vendors.size || 0
+
+    # if vendors.exists? 
+    #   vendors.size
+    # else 
+    #   0 
+    # end
+    
   end
 end

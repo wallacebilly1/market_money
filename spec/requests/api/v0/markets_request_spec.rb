@@ -3,6 +3,7 @@ require 'rails_helper'
 describe "Markets API" do
   it "sends a list of markets" do
     create_list(:market, 4)
+
     @market_1 = create(:market)
     @mv_1_1 = @market_1.market_vendors.create(vendor: create(:vendor))
     @mv_1_2 = @market_1.market_vendors.create(vendor: create(:vendor))
@@ -43,8 +44,7 @@ describe "Markets API" do
 
       expect(market[:attributes]).to have_key(:lon)
       expect(market[:attributes][:lon]).to be_an(String)
-
-      expect(market[:attributes][:vender_count]).to be_an(Integer)
+      expect(market[:attributes][:vendor_count]).to be_an(Integer)
     end
 
   end
