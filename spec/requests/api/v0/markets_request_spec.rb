@@ -3,6 +3,7 @@ require 'rails_helper'
 describe "Markets API" do
   before(:each) do
     create_list(:market, 4)
+
     @market_1 = create(:market)
     @mv_1_1 = @market_1.market_vendors.create(vendor: create(:vendor))
     @mv_1_2 = @market_1.market_vendors.create(vendor: create(:vendor))
