@@ -15,11 +15,12 @@ describe "Vendors API" do
   
   describe "Vendor index" do
     it "sends a list of a market's vendors with all attributes for that vendor" do
-      get "/api/v0/markets/#{@market_1}/vendors"
+      get "/api/v0/markets/#{@market_1.id}/vendors"
   
       expect(response).to be_successful
   
       vendors = JSON.parse(response.body, symbolize_names: true)[:data]
+
       expect(vendors.count).to eq(4)
       expect(vendors).to be_an(Array)
       
@@ -58,7 +59,7 @@ describe "Vendors API" do
 
   describe "Vendor show" do
     it "returns all vendor attributes for a specific vendor" do
-      get "/api/v0/markets/#{@market_1}/vendors/#{@vendor1}"
+      get "/api/v0/markets/#{@market_1.id}/vendors/#{@vendor_1.id}"
 
       #rest of test here.
     end
