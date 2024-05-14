@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/rodrigochavez/turing_work/3mod/market_money/config/environment.rb": {
+      "/Users/billy/Turing/3mod/projects/market_money/config/environment.rb": {
         "lines": [
           null,
           1,
@@ -10,7 +10,7 @@
           1
         ]
       },
-      "/Users/rodrigochavez/turing_work/3mod/market_money/config/application.rb": {
+      "/Users/billy/Turing/3mod/projects/market_money/config/application.rb": {
         "lines": [
           1,
           null,
@@ -58,7 +58,7 @@
           null
         ]
       },
-      "/Users/rodrigochavez/turing_work/3mod/market_money/config/boot.rb": {
+      "/Users/billy/Turing/3mod/projects/market_money/config/boot.rb": {
         "lines": [
           1,
           null,
@@ -66,7 +66,7 @@
           1
         ]
       },
-      "/Users/rodrigochavez/turing_work/3mod/market_money/config/environments/test.rb": {
+      "/Users/billy/Turing/3mod/projects/market_money/config/environments/test.rb": {
         "lines": [
           1,
           null,
@@ -134,7 +134,7 @@
           null
         ]
       },
-      "/Users/rodrigochavez/turing_work/3mod/market_money/config/initializers/cors.rb": {
+      "/Users/billy/Turing/3mod/projects/market_money/config/initializers/cors.rb": {
         "lines": [
           null,
           null,
@@ -154,7 +154,7 @@
           null
         ]
       },
-      "/Users/rodrigochavez/turing_work/3mod/market_money/config/initializers/filter_parameter_logging.rb": {
+      "/Users/billy/Turing/3mod/projects/market_money/config/initializers/filter_parameter_logging.rb": {
         "lines": [
           null,
           null,
@@ -166,7 +166,7 @@
           null
         ]
       },
-      "/Users/rodrigochavez/turing_work/3mod/market_money/config/initializers/inflections.rb": {
+      "/Users/billy/Turing/3mod/projects/market_money/config/initializers/inflections.rb": {
         "lines": [
           null,
           null,
@@ -186,11 +186,10 @@
           null
         ]
       },
-      "/Users/rodrigochavez/turing_work/3mod/market_money/spec/factories/markets.rb": {
+      "/Users/billy/Turing/3mod/projects/market_money/spec/factories/markets.rb": {
         "lines": [
           1,
           1,
-<<<<<<< HEAD
           13,
           13,
           13,
@@ -199,23 +198,13 @@
           13,
           13,
           13,
-=======
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
->>>>>>> 347eaee218889a392f607dd01f67fd48f19a4ab6
           null,
           null,
           null,
           null
         ]
       },
-      "/Users/rodrigochavez/turing_work/3mod/market_money/spec/factories/vendors.rb": {
+      "/Users/billy/Turing/3mod/projects/market_money/spec/factories/vendors.rb": {
         "lines": [
           1,
           1,
@@ -228,7 +217,7 @@
           null
         ]
       },
-      "/Users/rodrigochavez/turing_work/3mod/market_money/config/routes.rb": {
+      "/Users/billy/Turing/3mod/projects/market_money/config/routes.rb": {
         "lines": [
           1,
           null,
@@ -254,38 +243,25 @@
           null
         ]
       },
-      "/Users/rodrigochavez/turing_work/3mod/market_money/app/models/market.rb": {
+      "/Users/billy/Turing/3mod/projects/market_money/app/models/market.rb": {
         "lines": [
           1,
           1,
           1,
           null,
           1,
-<<<<<<< HEAD
           8,
-=======
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
->>>>>>> 347eaee218889a392f607dd01f67fd48f19a4ab6
           null,
           null
         ]
       },
-      "/Users/rodrigochavez/turing_work/3mod/market_money/app/models/application_record.rb": {
+      "/Users/billy/Turing/3mod/projects/market_money/app/models/application_record.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-<<<<<<< HEAD
       "/Users/billy/Turing/3mod/projects/market_money/spec/requests/api/v0/markets_request_spec.rb": {
         "lines": [
           1,
@@ -293,6 +269,7 @@
           1,
           1,
           2,
+          null,
           2,
           2,
           2,
@@ -394,9 +371,6 @@
         ]
       },
       "/Users/billy/Turing/3mod/projects/market_money/app/models/market_vendor.rb": {
-=======
-      "/Users/rodrigochavez/turing_work/3mod/market_money/app/models/market_vendor.rb": {
->>>>>>> 347eaee218889a392f607dd01f67fd48f19a4ab6
         "lines": [
           1,
           1,
@@ -404,7 +378,6 @@
           null
         ]
       },
-<<<<<<< HEAD
       "/Users/billy/Turing/3mod/projects/market_money/app/models/vendor.rb": {
         "lines": [
           1,
@@ -446,9 +419,6 @@
         ]
       },
       "/Users/billy/Turing/3mod/projects/market_money/app/serializers/vendor_serializer.rb": {
-=======
-      "/Users/rodrigochavez/turing_work/3mod/market_money/app/models/vendor.rb": {
->>>>>>> 347eaee218889a392f607dd01f67fd48f19a4ab6
         "lines": [
           1,
           1,
@@ -457,10 +427,6 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "timestamp": 1715721038
-=======
-    "timestamp": 1715721510
->>>>>>> 347eaee218889a392f607dd01f67fd48f19a4ab6
+    "timestamp": 1715721993
   }
 }
