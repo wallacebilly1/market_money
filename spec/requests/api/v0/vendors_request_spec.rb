@@ -31,35 +31,33 @@ describe "Vendors API" do
         expect(vendor[:attributes]).to have_key(:name)
         expect(vendor[:attributes][:name]).to be_an(String)
   
-        expect(vendor[:attributes]).to have_key(:street)
-        expect(vendor[:attributes][:street]).to be_an(String)
+        expect(vendor[:attributes]).to have_key(:description)
+        expect(vendor[:attributes][:description]).to be_an(String)
         
-        expect(vendor[:attributes]).to have_key(:city)
-        expect(vendor[:attributes][:city]).to be_an(String)
+        expect(vendor[:attributes]).to have_key(:contact_name)
+        expect(vendor[:attributes][:contact_name]).to be_an(String)
         
-        expect(vendor[:attributes]).to have_key(:county)
-        expect(vendor[:attributes][:county]).to be_an(String)
+        expect(vendor[:attributes]).to have_key(:contact_phone)
+        expect(vendor[:attributes][:contact_phone]).to be_an(String)
         
-        expect(vendor[:attributes]).to have_key(:state)
-        expect(vendor[:attributes][:state]).to be_an(String)
-        
-        expect(vendor[:attributes]).to have_key(:zip)
-        expect(vendor[:attributes][:zip]).to be_an(String)
-  
-        expect(vendor[:attributes]).to have_key(:lat)
-        expect(vendor[:attributes][:lat]).to be_an(String)
-  
-        expect(vendor[:attributes]).to have_key(:lon)
-        expect(vendor[:attributes][:lon]).to be_an(String)
-  
-        expect(vendor[:attributes][:vendor_count]).to be_an(Integer)
+        expect(vendor[:attributes]).to have_key(:credit_accepted)
+        expect(vendor[:attributes][:credit_accepted]).to be_in([true, false])
       end
+    end
+
+    xit "returns a 404 status and error message when an invalid market id is passed in" do
+      get "/api/v0/markets/123123123123123/vendors"
+
+      expect(response).to_not be_successful
+      expect(response.status).to eq(404)
+
+      # further tests on error message
     end
   end
 
   describe "Vendor show" do
-    it "returns all vendor attributes for a specific vendor" do
-      get "/api/v0/markets/#{@market_1.id}/vendors/#{@vendor_1.id}"
+    xit "returns all vendor attributes for a specific vendor" do
+      get "/api/v0/vendors/#{@vendor_1.id}"
 
       #rest of test here.
     end
