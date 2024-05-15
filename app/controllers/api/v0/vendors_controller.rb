@@ -19,13 +19,21 @@ class Api::V0::VendorsController < ApplicationController
     end
   end
 
+  def destroy
+    vendor = Vendor.find(params[:id])
+    vendor.destroy
+
+    render json: VendorSerializer.new(vendor),status: 204
+  end
+
   private
   def vendor_params
-    params.require(:vendor).permit( :name, 
-                                    :description, 
-                                    :contact_name, 
-                                    :contact_phone, 
-                                    :credit_accepted 
-                                  )
+    params.require(:vendor)
+          .permit( :name, 
+                   :description, 
+                   :contact_name, 
+                   :contact_phone, 
+                   :credit_accepted 
+                 )
   end
 end

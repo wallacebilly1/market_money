@@ -83,7 +83,7 @@ describe "Vendors API" do
       expect(vendor[:attributes][:credit_accepted]).to be_in([true, false])
     end
 
-    xit "returns a 404 status and error message when an invalid market id is passed in" do 
+    xit "returns a 404 status and error message when an invalid vendor id is passed in" do 
       get "/api/v0/vendors/0987654321" 
   
       expect(response).to_not be_successful
@@ -107,7 +107,6 @@ describe "Vendors API" do
     
       post "/api/v0/vendors", headers: headers, params: JSON.generate(vendor: vendor_params)
       created_vendor = Vendor.last
-      require 'pry'; binding.pry
     
       expect(response).to be_successful
       expect(response.status).to eq 201
@@ -116,6 +115,52 @@ describe "Vendors API" do
       expect(created_vendor.contact_name).to eq("Tommy Tommerson")
       expect(created_vendor.contact_phone).to eq("123-456-7890")
       expect(created_vendor.credit_accepted).to eq(true)
+    end
+
+    xit "returns a 404 status and error message when an all attributes are not passed in" do 
+      vendor_params = ({
+                      name: "Tommy's Teas",
+                      description: 'Delicious Teas',
+                      contact_name: 'Tommy Tommerson',
+                      credit_accepted: true
+                    })
+
+      headers = {"CONTENT_TYPE" => "application/json"}
+    
+      post "/api/v0/vendors", headers: headers, params: JSON.generate(vendor: vendor_params)
+      created_vendor = Vendor.last 
+  
+      expect(response).to_not be_successful
+      expect(response.status).to eq(404)
+  
+      #error handeling 
+    end
+  end
+
+  describe "Vendor destroy" do
+    it "deletes a vendor and all associated records" do
+      vendor = create(:vendor)
+      market = create(:market)
+      market_vendor = market.market_vendors.create(vendor: vendor)
+    
+      expect(Vendor.last).to eq(vendor)
+    
+      delete "/api/v0/vendors/#{vendor.id}"
+    
+      expect(response).to be_successful
+      expect(response.status).to eq(204)
+      expect(Vendor.last).to_not eq(vendor)
+      expect{Vendor.find(vendor.id)}.to raise_error(ActiveRecord::RecordNotFound)
+      expect{MarketVendor.find(market_vendor.id)}.to raise_error(ActiveRecord::RecordNotFound)
+    end
+
+    xit "returns a 404 status and error message when an invalid vendor id is passed in" do 
+      delete "/api/v0/vendors/0987654321" 
+  
+      expect(response).to_not be_successful
+      expect(response.status).to eq(404)
+  
+      #error handeling 
     end
   end
 end
