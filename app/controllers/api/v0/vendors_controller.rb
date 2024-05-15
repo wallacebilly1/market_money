@@ -15,7 +15,7 @@ class Api::V0::VendorsController < ApplicationController
     if vendor.save
       render json: VendorSerializer.new(vendor), status: 201
     else
-      # error message
+      raise ActiveModel::ValidationError, vendor
     end
   end
 
