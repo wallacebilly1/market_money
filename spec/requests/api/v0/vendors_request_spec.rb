@@ -62,4 +62,44 @@ describe "Vendors API" do
       #rest of test here.
     end
   end
+
+  describe '#get one vendor' do
+    it 'gets a single vendor' do
+
+      get "/api/v0/vendors/#{@vendor_1.id}" 
+      vendor = JSON.parse(response.body, symbolize_names: true)[:data]
+
+      expect(response).to be_successful
+      expect(response.status).to eq(200)
+
+      expect(vendor).to have_key(:id)
+      expect(vendor[:id]).to be_an(String)
+
+      expect(vendor[:attributes]).to have_key(:name)
+      expect(vendor[:attributes][:name]).to be_an(String)
+
+      expect(vendor[:attributes]).to have_key(:description)
+      expect(vendor[:attributes][:description]).to be_an(String)
+      
+      expect(vendor[:attributes]).to have_key(:contact_name)
+      expect(vendor[:attributes][:contact_name]).to be_an(String)
+      
+      expect(vendor[:attributes]).to have_key(:contact_phone)
+      expect(vendor[:attributes][:contact_phone]).to be_an(String)
+      
+      expect(vendor[:attributes]).to have_key(:credit_accepted)
+      expect(vendor[:attributes][:credit_accepted]).to be_in([true, false])
+    end
+
+
+    xit "sad path, when vendor id is invalid" do 
+
+      get "/api/v0/vendors/0987654321" 
+
+      expect(response).to_not be_successful
+      expect(response.status).to eq(404)
+
+      #error handeling 
+    end
+  end
 end
