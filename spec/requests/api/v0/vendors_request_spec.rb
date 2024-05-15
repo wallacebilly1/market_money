@@ -56,17 +56,9 @@ describe "Vendors API" do
   end
 
   describe "Vendor show" do
-    xit "returns all vendor attributes for a specific vendor" do
+    it "returns all vendor attributes for a specific vendor" do
       get "/api/v0/vendors/#{@vendor_1.id}"
 
-      #rest of test here.
-    end
-  end
-
-  describe '#get one vendor' do
-    it 'gets a single vendor' do
-
-      get "/api/v0/vendors/#{@vendor_1.id}" 
       vendor = JSON.parse(response.body, symbolize_names: true)[:data]
 
       expect(response).to be_successful
@@ -91,15 +83,39 @@ describe "Vendors API" do
       expect(vendor[:attributes][:credit_accepted]).to be_in([true, false])
     end
 
-
-    xit "sad path, when vendor id is invalid" do 
-
+    xit "returns a 404 status and error message when an invalid market id is passed in" do 
       get "/api/v0/vendors/0987654321" 
-
+  
       expect(response).to_not be_successful
       expect(response.status).to eq(404)
-
+  
       #error handeling 
+    end
+  end
+
+  describe "Vendor create" do
+    it "creates a new vendor record when passed all attributes" do
+      vendor_params = ({
+                      name: "Tommy's Teas",
+                      description: 'Delicious Teas',
+                      contact_name: 'Tommy Tommerson',
+                      contact_phone: '123-456-7890',
+                      credit_accepted: true
+                    })
+
+      headers = {"CONTENT_TYPE" => "application/json"}
+    
+      post "/api/v0/vendors", headers: headers, params: JSON.generate(vendor: vendor_params)
+      created_vendor = Vendor.last
+      require 'pry'; binding.pry
+    
+      expect(response).to be_successful
+      expect(response.status).to eq 201
+      expect(created_vendor.name).to eq("Tommy's Teas")
+      expect(created_vendor.description).to eq("Delicious Teas")
+      expect(created_vendor.contact_name).to eq("Tommy Tommerson")
+      expect(created_vendor.contact_phone).to eq("123-456-7890")
+      expect(created_vendor.credit_accepted).to eq(true)
     end
   end
 end
