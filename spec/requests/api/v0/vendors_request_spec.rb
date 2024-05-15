@@ -107,8 +107,10 @@ describe "Vendors API" do
     
       post "/api/v0/vendors", headers: headers, params: JSON.generate(vendor: vendor_params)
       created_vendor = Vendor.last
+      require 'pry'; binding.pry
     
       expect(response).to be_successful
+      expect(response.status).to eq 201
       expect(created_vendor.name).to eq("Tommy's Teas")
       expect(created_vendor.description).to eq("Delicious Teas")
       expect(created_vendor.contact_name).to eq("Tommy Tommerson")
