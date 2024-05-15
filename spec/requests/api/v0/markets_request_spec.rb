@@ -92,13 +92,17 @@ describe "Markets API" do
       expect(market[:attributes][:vendor_count]).to eq(4)
     end
 
-    xit "returns a 404 status and error message when an invalid market id is passed in" do
+    it "returns a 404 status and error message when an invalid market id is passed in" do
       get "/api/v0/markets/123123123123123"
 
       expect(response).to_not be_successful
       expect(response.status).to eq(404)
 
-      # further tests on error message
+      data = JSON.parse(response.body, symbolize_names: true)
+      
+      expect(data[:errors]).to be_a(Array)
+      expect(data[:errors].first[:status]).to eq("404")
+      expect(data[:errors].first[:title]).to eq("Couldn't find Market with 'id'=123123123123123")
     end
   end
 end

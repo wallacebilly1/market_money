@@ -45,13 +45,17 @@ describe "Vendors API" do
       end
     end
 
-    xit "returns a 404 status and error message when an invalid market id is passed in" do
+    it "returns a 404 status and error message when an invalid market id is passed in" do
       get "/api/v0/markets/123123123123123/vendors"
 
       expect(response).to_not be_successful
       expect(response.status).to eq(404)
 
-      # further tests on error message
+      data = JSON.parse(response.body, symbolize_names: true)
+      
+      expect(data[:errors]).to be_a(Array)
+      expect(data[:errors].first[:status]).to eq("404")
+      expect(data[:errors].first[:title]).to eq("Couldn't find Market with 'id'=123123123123123")
     end
   end
 
@@ -83,13 +87,17 @@ describe "Vendors API" do
       expect(vendor[:attributes][:credit_accepted]).to be_in([true, false])
     end
 
-    xit "returns a 404 status and error message when an invalid vendor id is passed in" do 
+    it "returns a 404 status and error message when an invalid vendor id is passed in" do 
       get "/api/v0/vendors/0987654321" 
-  
+
       expect(response).to_not be_successful
       expect(response.status).to eq(404)
-  
-      #error handeling 
+
+      data = JSON.parse(response.body, symbolize_names: true)
+      
+      expect(data[:errors]).to be_a(Array)
+      expect(data[:errors].first[:status]).to eq("404")
+      expect(data[:errors].first[:title]).to eq("Couldn't find Vendor with 'id'=0987654321")
     end
   end
 
@@ -117,7 +125,7 @@ describe "Vendors API" do
       expect(created_vendor.credit_accepted).to eq(true)
     end
 
-    xit "returns a 404 status and error message when an all attributes are not passed in" do 
+    it "returns a 400 status and error message when missing one attribute" do 
       vendor_params = ({
                       name: "Tommy's Teas",
                       description: 'Delicious Teas',
@@ -128,12 +136,36 @@ describe "Vendors API" do
       headers = {"CONTENT_TYPE" => "application/json"}
     
       post "/api/v0/vendors", headers: headers, params: JSON.generate(vendor: vendor_params)
-      created_vendor = Vendor.last 
-  
+
       expect(response).to_not be_successful
-      expect(response.status).to eq(404)
-  
-      #error handeling 
+      expect(response.status).to eq(400)
+
+      data = JSON.parse(response.body, symbolize_names: true)
+      
+      expect(data[:errors]).to be_a(Array)
+      expect(data[:errors].first[:status]).to eq("400")
+      expect(data[:errors].first[:title]).to eq("Validation failed: Contact phone can't be blank")
+    end
+
+    it "returns a 400 status and error message when missing more than one attribute" do 
+      vendor_params = ({
+                      name: "Tommy's Teas",
+                      description: 'Delicious Teas',
+                      credit_accepted: true
+                    })
+
+      headers = {"CONTENT_TYPE" => "application/json"}
+    
+      post "/api/v0/vendors", headers: headers, params: JSON.generate(vendor: vendor_params)
+
+      expect(response).to_not be_successful
+      expect(response.status).to eq(400)
+
+      data = JSON.parse(response.body, symbolize_names: true)
+      
+      expect(data[:errors]).to be_a(Array)
+      expect(data[:errors].first[:status]).to eq("400")
+      expect(data[:errors].first[:title]).to eq("Validation failed: Contact name can't be blank, Contact phone can't be blank")
     end
   end
 
@@ -154,13 +186,17 @@ describe "Vendors API" do
       expect{MarketVendor.find(market_vendor.id)}.to raise_error(ActiveRecord::RecordNotFound)
     end
 
-    xit "returns a 404 status and error message when an invalid vendor id is passed in" do 
+    it "returns a 404 status and error message when an invalid vendor id is passed in" do 
       delete "/api/v0/vendors/0987654321" 
-  
+
       expect(response).to_not be_successful
       expect(response.status).to eq(404)
-  
-      #error handeling 
+
+      data = JSON.parse(response.body, symbolize_names: true)
+      
+      expect(data[:errors]).to be_a(Array)
+      expect(data[:errors].first[:status]).to eq("404")
+      expect(data[:errors].first[:title]).to eq("Couldn't find Vendor with 'id'=0987654321")
     end
   end
 end
