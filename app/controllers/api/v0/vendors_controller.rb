@@ -1,4 +1,5 @@
-class Api::V0::VendorsController < ApplicationController 
+class Api::V0::VendorsController < ApplicationController
+
   def index 
     market = Market.find(params[:market_id])
     vendors = market.vendors
@@ -31,12 +32,11 @@ class Api::V0::VendorsController < ApplicationController
     if vendor.update(vendor_params)
       render json: VendorSerializer.new(vendor), status: 200
     else
-      render json: { errors: vendor.errors }, status: 400
+      raise ActiveModel::ValidationError, vendor
+      # render json: { errors: vendor.errors.full_messages }, status: 400
     end
   end
 
-  
-  
 
   private
   def vendor_params
