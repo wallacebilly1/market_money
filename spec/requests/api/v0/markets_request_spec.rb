@@ -99,7 +99,7 @@ describe "Markets API" do
       expect(response.status).to eq(404)
 
       data = JSON.parse(response.body, symbolize_names: true)
-      
+
       expect(data[:errors]).to be_a(Array)
       expect(data[:errors].first[:status]).to eq("404")
       expect(data[:errors].first[:title]).to eq("Couldn't find Market with 'id'=123123123123123")
@@ -169,6 +169,7 @@ describe "Markets API" do
 
     it "returns all market attributes for markets from a name search" do
       get "/api/v0/markets/search?name=Bee Market"
+
       expect(response).to be_successful
       expect(response.status).to eq(200)
 
@@ -186,11 +187,12 @@ describe "Markets API" do
 
     it "returns a 422 status and error message when trying to search with just a city" do
       get "/api/v0/markets/search?city=Denver"
+
       expect(response).to_not be_successful
       expect(response.status).to eq(422)
 
       data = JSON.parse(response.body, symbolize_names: true)
-      
+
       expect(data[:errors]).to be_a(Array)
       expect(data[:errors].first[:status]).to eq("422")
       expect(data[:errors].first[:title]).to eq("Invalid set of parameters. Please provide a valid set of parameters to perform a search with this endpoint.")

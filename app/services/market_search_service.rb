@@ -6,14 +6,18 @@ class MarketSearchService
   end
 
   def valid?
-    (state_present? || name_present?) && !city_present? || (state_present? && city_present? && name_present?) || state_present? || name_present?
+    return true if (state_present? && city_present? && name_present?)
+    return true if (state_present? && name_present?) || (state_present? && city_present?)
+    return false if (city_present? && name_present?)
+    return false if city_present?
+    return true if state_present? || name_present?
   end
 
   def results
     markets = Market.all
-    markets = markets.where(state: search_params[:state]) if state_present?
-    markets = markets.where(city: search_params[:city]) if city_present?
     markets = markets.where("name ILIKE ?", "%#{search_params[:name]}%") if name_present?
+    markets = markets.where("state ILIKE ?", "%#{search_params[:state]}%") if state_present?
+    markets = markets.where("city ILIKE ?", "%#{search_params[:city]}%") if city_present?
     markets
   end
 
