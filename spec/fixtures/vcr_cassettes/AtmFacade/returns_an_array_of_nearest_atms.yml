@@ -1,0 +1,95 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.tomtom.com/search/2/nearbySearch/.json?categorySet=7397&key=<TOMTOM_API_KEY>&lat=72.24423515241969&limit=5&lon=173.40140196250547&relatedPois=off&view=Unified
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 16 May 2024 22:03:16 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Tracking-Id:
+      - c4d4c531-2fbb-4971-a74a-ca7d83c8a430
+      Access-Control-Expose-Headers:
+      - Tracking-ID
+      Server:
+      - tomtom
+      X-Tomtom-Processed-By:
+      - westus2
+      X-Tomtom-Message-Id:
+      - b2fd8dc2-5de2-4e8f-9455-2612eadf8a85
+      X-Tomtom-Upstream-Service-Time:
+      - '46'
+      X-Tomtom-Attempt-Count:
+      - '1'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"summary":{"queryType":"NEARBY","queryTime":30,"numResults":0,"offset":0,"totalResults":0,"fuzzyLevel":2,"geoBias":{"lat":72.24423515241969,"lon":173.40140196250547}},"results":[]}'
+  recorded_at: Thu, 16 May 2024 22:03:16 GMT
+- request:
+    method: get
+    uri: https://api.tomtom.com/search/2/nearbySearch/.json?categorySet=7397&key=<TOMTOM_API_KEY>&lat=72.24423515241969&limit=5&lon=173.40140196250547&relatedPois=off&view=Unified
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 16 May 2024 22:03:16 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Tracking-Id:
+      - 41d46822-659b-4267-8948-19b19c3d4fdc
+      Access-Control-Expose-Headers:
+      - Tracking-ID
+      Server:
+      - tomtom
+      X-Tomtom-Processed-By:
+      - westus2
+      X-Tomtom-Message-Id:
+      - 56d3f783-a8df-43a6-9f65-48f17bd5a424
+      X-Tomtom-Upstream-Service-Time:
+      - '20'
+      X-Tomtom-Attempt-Count:
+      - '1'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"summary":{"queryType":"NEARBY","queryTime":6,"numResults":0,"offset":0,"totalResults":0,"fuzzyLevel":2,"geoBias":{"lat":72.24423515241969,"lon":173.40140196250547}},"results":[]}'
+  recorded_at: Thu, 16 May 2024 22:03:16 GMT
+recorded_with: VCR 6.2.0
