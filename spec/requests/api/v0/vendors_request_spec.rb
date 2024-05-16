@@ -238,10 +238,8 @@ describe "Vendors API" do
 
       expect(response).to_not be_successful
       expect(response.status).to eq(400)
-
       data = JSON.parse(response.body, symbolize_names: true)
-
-      # expect(data[:errors].first[:status]).to eq("400")
+      # require 'pry'; binding.pry
       expect(data[:errors].first[:title]).to eq("Validation failed: Contact name can't be blank")
 
     end
