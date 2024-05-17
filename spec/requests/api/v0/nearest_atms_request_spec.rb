@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Nearest ATMs API" do
+RSpec.describe "Nearest ATMs API" do
   before(:each) do
     @market_1 = create(:market, state: "New Mexico", city: "Albuquerque", name: "Bee Market", lat: 35.0780, lon: -106.5984)
   end

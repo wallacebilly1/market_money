@@ -8,7 +8,5 @@ FactoryBot.define do
     zip {Faker::Address.zip}
     lat {Faker::Address.latitude}
     lon {Faker::Address.longitude}
-    
   end
-
 end

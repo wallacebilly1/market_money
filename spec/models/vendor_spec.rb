@@ -19,7 +19,7 @@ RSpec.describe Vendor, type: :model do
         contact_name: 'Contact Name',
         contact_phone: '123-456-7890',
         credit_accepted: true
-      )
+        )
       expect(valid_vendor).to be_valid
 
       valid_vendor.credit_accepted = false
@@ -31,7 +31,7 @@ RSpec.describe Vendor, type: :model do
         contact_name: 'Contact Name',
         contact_phone: '123-456-7890',
         credit_accepted: nil
-      )
+        )
       expect(invalid_vendor).not_to be_valid
       expect(invalid_vendor.errors[:credit_accepted]).to include("can't be nil")
     end
@@ -45,7 +45,7 @@ RSpec.describe Vendor, type: :model do
           description: 'Description',
           contact_name: 'Contact Name',
           contact_phone: '123-456-7890'
-        )
+          )
         vendor.valid?
         expect(vendor.errors[:credit_accepted]).to include("can't be nil")
       end
@@ -57,7 +57,7 @@ RSpec.describe Vendor, type: :model do
           contact_name: 'Contact Name',
           contact_phone: '123-456-7890',
           credit_accepted: true
-        )
+          )
         expect(vendor1).to be_valid
 
         vendor2 = Vendor.new(
@@ -66,7 +66,7 @@ RSpec.describe Vendor, type: :model do
           contact_name: 'Contact Name',
           contact_phone: '123-456-7890',
           credit_accepted: false
-        )
+          )
         expect(vendor2).to be_valid
       end
     end
