@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Vendors API" do
+RSpec.describe "Vendors API" do
   before(:each) do
     @market_1 = create(:market)
     @vendor_1 = create(:vendor)
@@ -199,37 +199,38 @@ describe "Vendors API" do
     end
   end
 
-  describe "updates a vendor" do 
-    it "can update an existing book" do
+  describe "Vendor update" do 
+    it "updates a vendors attributes and returns the vendor" do
       id = create(:vendor).id
       previous_name = Vendor.last.name
       vendor_params = { name: "NAME1" }
       headers = {"CONTENT_TYPE" => "application/json"}
       
-      patch "/api/v0/vendors/#{id}", headers: headers, params:  JSON.generate({vendor: vendor_params})
-      
-      vendor = Vendor.find_by(id: id)
-      
+      patch "/api/v0/vendors/#{id}", headers: headers, params: JSON.generate({vendor: vendor_params})
+
+      vendor = JSON.parse(response.body, symbolize_names: true)[:data]
+
       expect(response).to be_successful
-      expect(vendor.name).to_not eq(previous_name)
-      expect(vendor.name).to eq("NAME1")
+      expect(vendor[:attributes][:name]).to_not eq(previous_name)
+      expect(vendor[:attributes][:name]).to eq("NAME1")
     end
 
-    
-    it 'first sad path' do
+    it 'returns a 404 status and error message when an invalid vendor_id is passed in' do
       vendor_params = { name: "NAME1" }
       headers = {"CONTENT_TYPE" => "application/json"}
       
-      patch "/api/v0/vendors/12342", headers: headers, params:  JSON.generate({vendor: vendor_params})
+      patch "/api/v0/vendors/12342", headers: headers, params: JSON.generate({vendor: vendor_params})
       
       expect(response).to_not be_successful
+
       data = JSON.parse(response.body, symbolize_names: true)
+
       expect(data[:errors].first[:status]).to eq("404")
       expect(data[:errors].first[:title]).to eq("Couldn't find Vendor with 'id'=12342")
 
     end
 
-    it "second sad path" do 
+    it "returns a 400 status and error message when an trying to update to nil" do 
       id = create(:vendor).id
       vendor_params = { contact_name: ""}
       headers = {"CONTENT_TYPE" => "application/json"}
@@ -238,10 +239,10 @@ describe "Vendors API" do
 
       expect(response).to_not be_successful
       expect(response.status).to eq(400)
+      
       data = JSON.parse(response.body, symbolize_names: true)
-      # require 'pry'; binding.pry
-      expect(data[:errors].first[:title]).to eq("Validation failed: Contact name can't be blank")
 
+      expect(data[:errors].first[:title]).to eq("Validation failed: Contact name can't be blank")
     end
   end
 end

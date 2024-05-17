@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.tomtom.com/search/2/nearbySearch/.json?categorySet=7397&key=<TOMTOM_API_KEY>&lat=-64.893511701184&limit=5&lon=-9.732515011105562&relatedPois=off&view=Unified
+    uri: https://api.tomtom.com/search/2/nearbySearch/.json?categorySet=7397&key=<TOMTOM_API_KEY>&lat=35.07904&limit=5&lon=-106.60068&relatedPois=off&view=Unified
     body:
       encoding: US-ASCII
       string: ''
@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 16 May 2024 22:09:49 GMT
+      - Fri, 17 May 2024 14:11:53 GMT
       Content-Type:
       - application/json; charset=utf-8
       Vary:
@@ -27,7 +27,7 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       Tracking-Id:
-      - 851552ae-3122-4783-a6c2-bd75a57f4b2e
+      - 915e379a-98bf-45bf-aba0-ad5443b0d2b0
       Access-Control-Expose-Headers:
       - Tracking-ID
       Server:
@@ -35,20 +35,50 @@ http_interactions:
       X-Tomtom-Processed-By:
       - westus2
       X-Tomtom-Message-Id:
-      - 895e6a71-24e7-4766-8732-1e3405796d01
+      - 426dbf41-6fc1-4b40-b61e-bfbdf5aaac71
       X-Tomtom-Upstream-Service-Time:
-      - '34'
+      - '55'
       X-Tomtom-Attempt-Count:
       - '1'
       Transfer-Encoding:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"summary":{"queryType":"NEARBY","queryTime":18,"numResults":0,"offset":0,"totalResults":0,"fuzzyLevel":2,"geoBias":{"lat":-64.893511701184,"lon":-9.732515011105562}},"results":[]}'
-  recorded_at: Thu, 16 May 2024 22:09:49 GMT
+      string: '{"summary":{"queryType":"NEARBY","queryTime":39,"numResults":5,"offset":0,"totalResults":100,"fuzzyLevel":1,"geoBias":{"lat":35.07904,"lon":-106.60068}},"results":[{"type":"POI","id":"zCkCLyNT3JUF8Kf5TsnodA","score":99.9995574951,"dist":0.445287,"info":"search:ta:840359000810929-US","poi":{"name":"ATM","categorySet":[{"id":7397}],"categories":["cash
+        dispenser"],"classifications":[{"code":"CASH_DISPENSER","names":[{"nameLocale":"en-US","name":"cash
+        dispenser"}]}]},"address":{"streetNumber":"3902","streetName":"Central Avenue
+        Southeast","municipality":"Albuquerque","neighbourhood":"Nob Hill","countrySecondarySubdivision":"Bernalillo","countrySubdivision":"NM","countrySubdivisionName":"New
+        Mexico","countrySubdivisionCode":"NM","postalCode":"87108","extendedPostalCode":"87108-1017","countryCode":"US","country":"United
+        States","countryCodeISO3":"USA","freeformAddress":"3902 Central Avenue Southeast,
+        Albuquerque, NM 87108","localName":"Albuquerque"},"position":{"lat":35.079044,"lon":-106.60068},"viewport":{"topLeftPoint":{"lat":35.07994,"lon":-106.60178},"btmRightPoint":{"lat":35.07814,"lon":-106.59958}},"entryPoints":[{"type":"main","position":{"lat":35.07929,"lon":-106.60064}}]},{"type":"POI","id":"jvwh5MLpuIqr_n3e77cgjQ","score":99.8804550171,"dist":119.549795,"info":"search:ta:840359000635604-US","poi":{"name":"Columbus
+        Data Services","categorySet":[{"id":7397}],"categories":["cash dispenser"],"classifications":[{"code":"CASH_DISPENSER","names":[{"nameLocale":"en-US","name":"cash
+        dispenser"}]}]},"address":{"streetNumber":"3801","streetName":"Central Avenue
+        Northeast","municipality":"Albuquerque","neighbourhood":"Nob Hill","countrySecondarySubdivision":"Bernalillo","countrySubdivision":"NM","countrySubdivisionName":"New
+        Mexico","countrySubdivisionCode":"NM","postalCode":"87108","countryCode":"US","country":"United
+        States","countryCodeISO3":"USA","freeformAddress":"3801 Central Avenue Northeast,
+        Albuquerque, NM 87108","localName":"Albuquerque"},"position":{"lat":35.079835,"lon":-106.601564},"viewport":{"topLeftPoint":{"lat":35.08073,"lon":-106.60266},"btmRightPoint":{"lat":35.07894,"lon":-106.60047}},"entryPoints":[{"type":"main","position":{"lat":35.07951,"lon":-106.60159}}]},{"type":"POI","id":"9KWO-063BDvZD5huSf6FnQ","score":99.792678833,"dist":207.315628,"info":"search:ta:840359000787908-US","poi":{"name":"ATM","categorySet":[{"id":7397}],"categories":["cash
+        dispenser"],"classifications":[{"code":"CASH_DISPENSER","names":[{"nameLocale":"en-US","name":"cash
+        dispenser"}]}]},"address":{"streetNumber":"4100","streetName":"Central Avenue
+        Southeast","municipality":"Albuquerque","neighbourhood":"Nob Hill","countrySecondarySubdivision":"Bernalillo","countrySubdivision":"NM","countrySubdivisionName":"New
+        Mexico","countrySubdivisionCode":"NM","postalCode":"87108","extendedPostalCode":"87108-1161","countryCode":"US","country":"United
+        States","countryCodeISO3":"USA","freeformAddress":"4100 Central Avenue Southeast,
+        Albuquerque, NM 87108","localName":"Albuquerque"},"position":{"lat":35.078804,"lon":-106.59842},"viewport":{"topLeftPoint":{"lat":35.0797,"lon":-106.59952},"btmRightPoint":{"lat":35.0779,"lon":-106.59732}},"entryPoints":[{"type":"main","position":{"lat":35.07904,"lon":-106.59838}}]},{"type":"POI","id":"mCM3tWRNT6a7kUNV2ZtVDA","score":99.6210708618,"dist":378.932817,"info":"search:ta:840359000280874-US","poi":{"name":"Cu
+        Anytime","categorySet":[{"id":7397}],"categories":["cash dispenser"],"classifications":[{"code":"CASH_DISPENSER","names":[{"nameLocale":"en-US","name":"cash
+        dispenser"}]}]},"address":{"streetNumber":"3500","streetName":"Central Avenue
+        Southeast","municipality":"Albuquerque","neighbourhood":"Nob Hill","countrySecondarySubdivision":"Bernalillo","countrySubdivision":"NM","countrySubdivisionName":"New
+        Mexico","countrySubdivisionCode":"NM","postalCode":"87106","extendedPostalCode":"87106-1434","countryCode":"US","country":"United
+        States","countryCodeISO3":"USA","freeformAddress":"3500 Central Avenue Southeast,
+        Albuquerque, NM 87106","localName":"Albuquerque"},"position":{"lat":35.079526,"lon":-106.604802},"viewport":{"topLeftPoint":{"lat":35.08043,"lon":-106.6059},"btmRightPoint":{"lat":35.07863,"lon":-106.6037}},"entryPoints":[{"type":"main","position":{"lat":35.07974,"lon":-106.60477}}]},{"type":"POI","id":"SP_XSCh6xu40i6etEc6HHA","score":99.53099823,"dist":468.9992,"info":"search:ta:840359000656006-US","poi":{"name":"Lynk
+        Systems","categorySet":[{"id":7397}],"categories":["cash dispenser"],"classifications":[{"code":"CASH_DISPENSER","names":[{"nameLocale":"en-US","name":"cash
+        dispenser"}]}]},"address":{"streetNumber":"4212","streetName":"Coal Avenue
+        Southeast","municipality":"Albuquerque","neighbourhood":"Nob Hill","countrySecondarySubdivision":"Bernalillo","countrySubdivision":"NM","countrySubdivisionName":"New
+        Mexico","countrySubdivisionCode":"NM","postalCode":"87108","countryCode":"US","country":"United
+        States","countryCodeISO3":"USA","freeformAddress":"4212 Coal Avenue Southeast,
+        Albuquerque, NM 87108","localName":"Albuquerque"},"position":{"lat":35.075733,"lon":-106.597481},"viewport":{"topLeftPoint":{"lat":35.07663,"lon":-106.59858},"btmRightPoint":{"lat":35.07483,"lon":-106.59638}},"entryPoints":[{"type":"main","position":{"lat":35.07542,"lon":-106.59748}}]}]}'
+  recorded_at: Fri, 17 May 2024 14:11:53 GMT
 - request:
     method: get
-    uri: https://api.tomtom.com/search/2/nearbySearch/.json?categorySet=7397&key=<TOMTOM_API_KEY>&lat=-64.893511701184&limit=5&lon=-9.732515011105562&relatedPois=off&view=Unified
+    uri: https://api.tomtom.com/search/2/nearbySearch/.json?categorySet=7397&key=<TOMTOM_API_KEY>&lat=35.07904&limit=5&lon=-106.60068&relatedPois=off&view=Unified
     body:
       encoding: US-ASCII
       string: ''
@@ -65,7 +95,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 16 May 2024 22:09:49 GMT
+      - Fri, 17 May 2024 14:11:54 GMT
       Content-Type:
       - application/json; charset=utf-8
       Vary:
@@ -73,7 +103,7 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       Tracking-Id:
-      - c5be1821-0612-49b3-8966-3e6e17727bbc
+      - f99c5105-4c4c-44e4-a8bb-7da862e8d50e
       Access-Control-Expose-Headers:
       - Tracking-ID
       Server:
@@ -81,15 +111,45 @@ http_interactions:
       X-Tomtom-Processed-By:
       - westus2
       X-Tomtom-Message-Id:
-      - 04f3864a-8eb1-48f0-a440-0b5bfd691bbf
+      - 8a79ba0a-32c1-4cbd-8971-fa4eabaa3202
       X-Tomtom-Upstream-Service-Time:
-      - '33'
+      - '56'
       X-Tomtom-Attempt-Count:
       - '1'
       Transfer-Encoding:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"summary":{"queryType":"NEARBY","queryTime":16,"numResults":0,"offset":0,"totalResults":0,"fuzzyLevel":2,"geoBias":{"lat":-64.893511701184,"lon":-9.732515011105562}},"results":[]}'
-  recorded_at: Thu, 16 May 2024 22:09:49 GMT
+      string: '{"summary":{"queryType":"NEARBY","queryTime":40,"numResults":5,"offset":0,"totalResults":100,"fuzzyLevel":1,"geoBias":{"lat":35.07904,"lon":-106.60068}},"results":[{"type":"POI","id":"zCkCLyNT3JUF8Kf5TsnodA","score":99.9995574951,"dist":0.445287,"info":"search:ta:840359000810929-US","poi":{"name":"ATM","categorySet":[{"id":7397}],"categories":["cash
+        dispenser"],"classifications":[{"code":"CASH_DISPENSER","names":[{"nameLocale":"en-US","name":"cash
+        dispenser"}]}]},"address":{"streetNumber":"3902","streetName":"Central Avenue
+        Southeast","municipality":"Albuquerque","neighbourhood":"Nob Hill","countrySecondarySubdivision":"Bernalillo","countrySubdivision":"NM","countrySubdivisionName":"New
+        Mexico","countrySubdivisionCode":"NM","postalCode":"87108","extendedPostalCode":"87108-1017","countryCode":"US","country":"United
+        States","countryCodeISO3":"USA","freeformAddress":"3902 Central Avenue Southeast,
+        Albuquerque, NM 87108","localName":"Albuquerque"},"position":{"lat":35.079044,"lon":-106.60068},"viewport":{"topLeftPoint":{"lat":35.07994,"lon":-106.60178},"btmRightPoint":{"lat":35.07814,"lon":-106.59958}},"entryPoints":[{"type":"main","position":{"lat":35.07929,"lon":-106.60064}}]},{"type":"POI","id":"jvwh5MLpuIqr_n3e77cgjQ","score":99.8804550171,"dist":119.549795,"info":"search:ta:840359000635604-US","poi":{"name":"Columbus
+        Data Services","categorySet":[{"id":7397}],"categories":["cash dispenser"],"classifications":[{"code":"CASH_DISPENSER","names":[{"nameLocale":"en-US","name":"cash
+        dispenser"}]}]},"address":{"streetNumber":"3801","streetName":"Central Avenue
+        Northeast","municipality":"Albuquerque","neighbourhood":"Nob Hill","countrySecondarySubdivision":"Bernalillo","countrySubdivision":"NM","countrySubdivisionName":"New
+        Mexico","countrySubdivisionCode":"NM","postalCode":"87108","countryCode":"US","country":"United
+        States","countryCodeISO3":"USA","freeformAddress":"3801 Central Avenue Northeast,
+        Albuquerque, NM 87108","localName":"Albuquerque"},"position":{"lat":35.079835,"lon":-106.601564},"viewport":{"topLeftPoint":{"lat":35.08073,"lon":-106.60266},"btmRightPoint":{"lat":35.07894,"lon":-106.60047}},"entryPoints":[{"type":"main","position":{"lat":35.07951,"lon":-106.60159}}]},{"type":"POI","id":"9KWO-063BDvZD5huSf6FnQ","score":99.792678833,"dist":207.315628,"info":"search:ta:840359000787908-US","poi":{"name":"ATM","categorySet":[{"id":7397}],"categories":["cash
+        dispenser"],"classifications":[{"code":"CASH_DISPENSER","names":[{"nameLocale":"en-US","name":"cash
+        dispenser"}]}]},"address":{"streetNumber":"4100","streetName":"Central Avenue
+        Southeast","municipality":"Albuquerque","neighbourhood":"Nob Hill","countrySecondarySubdivision":"Bernalillo","countrySubdivision":"NM","countrySubdivisionName":"New
+        Mexico","countrySubdivisionCode":"NM","postalCode":"87108","extendedPostalCode":"87108-1161","countryCode":"US","country":"United
+        States","countryCodeISO3":"USA","freeformAddress":"4100 Central Avenue Southeast,
+        Albuquerque, NM 87108","localName":"Albuquerque"},"position":{"lat":35.078804,"lon":-106.59842},"viewport":{"topLeftPoint":{"lat":35.0797,"lon":-106.59952},"btmRightPoint":{"lat":35.0779,"lon":-106.59732}},"entryPoints":[{"type":"main","position":{"lat":35.07904,"lon":-106.59838}}]},{"type":"POI","id":"mCM3tWRNT6a7kUNV2ZtVDA","score":99.6210708618,"dist":378.932817,"info":"search:ta:840359000280874-US","poi":{"name":"Cu
+        Anytime","categorySet":[{"id":7397}],"categories":["cash dispenser"],"classifications":[{"code":"CASH_DISPENSER","names":[{"nameLocale":"en-US","name":"cash
+        dispenser"}]}]},"address":{"streetNumber":"3500","streetName":"Central Avenue
+        Southeast","municipality":"Albuquerque","neighbourhood":"Nob Hill","countrySecondarySubdivision":"Bernalillo","countrySubdivision":"NM","countrySubdivisionName":"New
+        Mexico","countrySubdivisionCode":"NM","postalCode":"87106","extendedPostalCode":"87106-1434","countryCode":"US","country":"United
+        States","countryCodeISO3":"USA","freeformAddress":"3500 Central Avenue Southeast,
+        Albuquerque, NM 87106","localName":"Albuquerque"},"position":{"lat":35.079526,"lon":-106.604802},"viewport":{"topLeftPoint":{"lat":35.08043,"lon":-106.6059},"btmRightPoint":{"lat":35.07863,"lon":-106.6037}},"entryPoints":[{"type":"main","position":{"lat":35.07974,"lon":-106.60477}}]},{"type":"POI","id":"SP_XSCh6xu40i6etEc6HHA","score":99.53099823,"dist":468.9992,"info":"search:ta:840359000656006-US","poi":{"name":"Lynk
+        Systems","categorySet":[{"id":7397}],"categories":["cash dispenser"],"classifications":[{"code":"CASH_DISPENSER","names":[{"nameLocale":"en-US","name":"cash
+        dispenser"}]}]},"address":{"streetNumber":"4212","streetName":"Coal Avenue
+        Southeast","municipality":"Albuquerque","neighbourhood":"Nob Hill","countrySecondarySubdivision":"Bernalillo","countrySubdivision":"NM","countrySubdivisionName":"New
+        Mexico","countrySubdivisionCode":"NM","postalCode":"87108","countryCode":"US","country":"United
+        States","countryCodeISO3":"USA","freeformAddress":"4212 Coal Avenue Southeast,
+        Albuquerque, NM 87108","localName":"Albuquerque"},"position":{"lat":35.075733,"lon":-106.597481},"viewport":{"topLeftPoint":{"lat":35.07663,"lon":-106.59858},"btmRightPoint":{"lat":35.07483,"lon":-106.59638}},"entryPoints":[{"type":"main","position":{"lat":35.07542,"lon":-106.59748}}]}]}'
+  recorded_at: Fri, 17 May 2024 14:11:54 GMT
 recorded_with: VCR 6.2.0

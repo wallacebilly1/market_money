@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Markets API" do
+RSpec.describe "Markets API" do
   before(:each) do
     create_list(:market, 4)
 

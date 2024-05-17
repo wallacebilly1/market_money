@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe AtmFacade do
   before(:each) do
-    @market1 = create(:market)
+    @market1 = create(:market, lat: 35.07904, lon: -106.60068)
     @facade = AtmFacade.new(@market1.id)
   end
 

@@ -23,7 +23,6 @@ RSpec.describe Market, type: :model do
 
         expect(@market_2.vendor_count).to eq 0
       end
-
     end
   end
 end
