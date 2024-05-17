@@ -28,7 +28,7 @@ RSpec.describe "MarketVendors API" do
 
       expect(response).to_not be_successful
       expect(response.status).to eq(404)
-      expect(data[:errors].first[:title]).to eq("Validation Failed: Market must exist")
+      expect(data[:errors].first[:title]).to eq("Couldn't find Market with 'id'=1212322")
 
       post "/api/v0/market_vendors", params: { "market_id": market.id, "vendor_id": "123123123" } 
 
@@ -36,7 +36,7 @@ RSpec.describe "MarketVendors API" do
 
       expect(response).to_not be_successful
       expect(response.status).to eq(404)
-      expect(data[:errors].first[:title]).to eq("Validation Failed: Vendor must exist")
+      expect(data[:errors].first[:title]).to eq("Couldn't find Vendor with 'id'=123123123")
     end
 
     it 'returns a 422 status and error message when trying to create a market vendor that already exists' do
@@ -55,4 +55,57 @@ RSpec.describe "MarketVendors API" do
       expect(data[:errors].first[:title]).to eq("Validation failed: Market vendor association between market with market_id=#{market.id} and vendor_id=#{vendor.id} already exists")
     end
   end
+
+  describe "MarketVendor destroy" do
+    before(:each) do
+      @vendor = create(:vendor)
+      @market = create(:market)
+      @market_vendor = @market.market_vendors.create(vendor: @vendor)
+    end
+
+    it "deletes a Marketvendor " do
+      expect(MarketVendor.last).to eq(@market_vendor)
+
+      headers = {"CONTENT_TYPE" => "application/json", "ACCEPT" => "application/json"}
+      market_vendor_params = {market_id: @market.id, vendor_id: @vendor.id}
+    
+      delete "/api/v0/market_vendors", headers: headers, params: JSON.generate(market_vendor_params)
+      expect(response).to be_successful
+      expect(response.status).to eq(204)
+      expect(MarketVendor.last).to_not eq(@market_vendor)
+      expect{MarketVendor.find(@market_vendor.id)}.to raise_error(ActiveRecord::RecordNotFound)
+    end
+
+    it "returns a 404 status and error message when an invalid market_id is passed in" do 
+      headers = {"CONTENT_TYPE" => "application/json", "ACCEPT" => "application/json"}
+      market_vendor_params = {market_id: 123123123, vendor_id: @vendor.id}
+
+      delete "/api/v0/market_vendors", headers: headers, params: JSON.generate(market_vendor_params)
+
+      expect(response).to_not be_successful
+      expect(response.status).to eq(404)
+
+      data = JSON.parse(response.body, symbolize_names: true)
+
+      expect(data[:errors]).to be_a(Array)
+      expect(data[:errors].first[:status]).to eq("404")
+      expect(data[:errors].first[:title]).to eq("Couldn't find Market with 'id'=123123123")
+    end
+
+    it "returns a 404 status and error message when an invalid vendor_id is passed in" do 
+      headers = {"CONTENT_TYPE" => "application/json", "ACCEPT" => "application/json"}
+      market_vendor_params = {market_id: @market.id, vendor_id: 123123123}
+
+      delete "/api/v0/market_vendors", headers: headers, params: JSON.generate(market_vendor_params)
+
+      expect(response).to_not be_successful
+      expect(response.status).to eq(404)
+
+      data = JSON.parse(response.body, symbolize_names: true)
+      expect(data[:errors]).to be_a(Array)
+      expect(data[:errors].first[:status]).to eq("404")
+      expect(data[:errors].first[:title]).to eq("Couldn't find Vendor with 'id'=123123123")
+    end
+  end
+
 end
