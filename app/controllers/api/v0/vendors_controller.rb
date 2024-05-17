@@ -18,6 +18,11 @@ class Api::V0::VendorsController < ApplicationController
     else
       raise ActiveModel::ValidationError, vendor
     end
+
+    # vendor.save!
+    # render json: VendorSerializer.new(vendor), status: 201
+
+    # we can do something like this later on in our refactor for the create and update 
   end
 
   def destroy
