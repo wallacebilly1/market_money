@@ -13,4 +13,14 @@ class ErrorSerializer
       ]
     }
   end
+
+  def serialize_json_market_vendor
+    {
+      errors: [
+        {
+          title: @error_object.market_vendor_error_message
+        }
+      ]
+    }
+  end
 end
