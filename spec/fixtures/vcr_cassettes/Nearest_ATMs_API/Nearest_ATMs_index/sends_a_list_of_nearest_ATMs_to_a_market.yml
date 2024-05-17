@@ -1,0 +1,79 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.tomtom.com/search/2/nearbySearch/.json?categorySet=7397&key=<TOMTOM_API_KEY>&lat=35.078&limit=5&lon=-106.5984&relatedPois=off&view=Unified
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 16 May 2024 22:09:49 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Tracking-Id:
+      - '0848f1b7-f042-48b8-ac96-e3a48f70f73c'
+      Access-Control-Expose-Headers:
+      - Tracking-ID
+      Server:
+      - tomtom
+      X-Tomtom-Processed-By:
+      - westus2
+      X-Tomtom-Message-Id:
+      - ecf2b218-2cfb-46f0-93ae-c3e94b463e3c
+      X-Tomtom-Upstream-Service-Time:
+      - '25'
+      X-Tomtom-Attempt-Count:
+      - '1'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"summary":{"queryType":"NEARBY","queryTime":7,"numResults":5,"offset":0,"totalResults":100,"fuzzyLevel":1,"geoBias":{"lat":35.078,"lon":-106.5984}},"results":[{"type":"POI","id":"9KWO-063BDvZD5huSf6FnQ","score":99.9105834961,"dist":89.417349,"info":"search:ta:840359000787908-US","poi":{"name":"ATM","categorySet":[{"id":7397}],"categories":["cash
+        dispenser"],"classifications":[{"code":"CASH_DISPENSER","names":[{"nameLocale":"en-US","name":"cash
+        dispenser"}]}]},"address":{"streetNumber":"4100","streetName":"Central Avenue
+        Southeast","municipality":"Albuquerque","neighbourhood":"Nob Hill","countrySecondarySubdivision":"Bernalillo","countrySubdivision":"NM","countrySubdivisionName":"New
+        Mexico","countrySubdivisionCode":"NM","postalCode":"87108","extendedPostalCode":"87108-1161","countryCode":"US","country":"United
+        States","countryCodeISO3":"USA","freeformAddress":"4100 Central Avenue Southeast,
+        Albuquerque, NM 87108","localName":"Albuquerque"},"position":{"lat":35.078804,"lon":-106.59842},"viewport":{"topLeftPoint":{"lat":35.0797,"lon":-106.59952},"btmRightPoint":{"lat":35.0779,"lon":-106.59732}},"entryPoints":[{"type":"main","position":{"lat":35.07904,"lon":-106.59838}}]},{"type":"POI","id":"zCkCLyNT3JUF8Kf5TsnodA","score":99.7622528076,"dist":237.745116,"info":"search:ta:840359000810929-US","poi":{"name":"ATM","categorySet":[{"id":7397}],"categories":["cash
+        dispenser"],"classifications":[{"code":"CASH_DISPENSER","names":[{"nameLocale":"en-US","name":"cash
+        dispenser"}]}]},"address":{"streetNumber":"3902","streetName":"Central Avenue
+        Southeast","municipality":"Albuquerque","neighbourhood":"Nob Hill","countrySecondarySubdivision":"Bernalillo","countrySubdivision":"NM","countrySubdivisionName":"New
+        Mexico","countrySubdivisionCode":"NM","postalCode":"87108","extendedPostalCode":"87108-1017","countryCode":"US","country":"United
+        States","countryCodeISO3":"USA","freeformAddress":"3902 Central Avenue Southeast,
+        Albuquerque, NM 87108","localName":"Albuquerque"},"position":{"lat":35.079044,"lon":-106.60068},"viewport":{"topLeftPoint":{"lat":35.07994,"lon":-106.60178},"btmRightPoint":{"lat":35.07814,"lon":-106.59958}},"entryPoints":[{"type":"main","position":{"lat":35.07929,"lon":-106.60064}}]},{"type":"POI","id":"SP_XSCh6xu40i6etEc6HHA","score":99.7344284058,"dist":265.571398,"info":"search:ta:840359000656006-US","poi":{"name":"Lynk
+        Systems","categorySet":[{"id":7397}],"categories":["cash dispenser"],"classifications":[{"code":"CASH_DISPENSER","names":[{"nameLocale":"en-US","name":"cash
+        dispenser"}]}]},"address":{"streetNumber":"4212","streetName":"Coal Avenue
+        Southeast","municipality":"Albuquerque","neighbourhood":"Nob Hill","countrySecondarySubdivision":"Bernalillo","countrySubdivision":"NM","countrySubdivisionName":"New
+        Mexico","countrySubdivisionCode":"NM","postalCode":"87108","countryCode":"US","country":"United
+        States","countryCodeISO3":"USA","freeformAddress":"4212 Coal Avenue Southeast,
+        Albuquerque, NM 87108","localName":"Albuquerque"},"position":{"lat":35.075733,"lon":-106.597481},"viewport":{"topLeftPoint":{"lat":35.07663,"lon":-106.59858},"btmRightPoint":{"lat":35.07483,"lon":-106.59638}},"entryPoints":[{"type":"main","position":{"lat":35.07542,"lon":-106.59748}}]},{"type":"POI","id":"Pj7BcbBQugNCqA6-uC6Klw","score":99.6957855225,"dist":304.215573,"info":"search:ta:840359000772211-US","poi":{"name":"Prosperity
+        Bank","categorySet":[{"id":7397}],"categories":["cash dispenser"],"classifications":[{"code":"CASH_DISPENSER","names":[{"nameLocale":"en-US","name":"cash
+        dispenser"}]}]},"address":{"streetNumber":"4320","streetName":"Lead Avenue
+        Southeast","municipality":"Albuquerque","neighbourhood":"Nob Hill","countrySecondarySubdivision":"Bernalillo","countrySubdivision":"NM","countrySubdivisionName":"New
+        Mexico","countrySubdivisionCode":"NM","postalCode":"87108","extendedPostalCode":"87108-2725","countryCode":"US","country":"United
+        States","countryCodeISO3":"USA","freeformAddress":"4320 Lead Avenue Southeast,
+        Albuquerque, NM 87108","localName":"Albuquerque"},"position":{"lat":35.075622,"lon":-106.596747},"viewport":{"topLeftPoint":{"lat":35.07652,"lon":-106.59785},"btmRightPoint":{"lat":35.07472,"lon":-106.59565}},"entryPoints":[{"type":"main","position":{"lat":35.07572,"lon":-106.59669}}]},{"type":"POI","id":"jvwh5MLpuIqr_n3e77cgjQ","score":99.6470794678,"dist":352.921915,"info":"search:ta:840359000635604-US","poi":{"name":"Columbus
+        Data Services","categorySet":[{"id":7397}],"categories":["cash dispenser"],"classifications":[{"code":"CASH_DISPENSER","names":[{"nameLocale":"en-US","name":"cash
+        dispenser"}]}]},"address":{"streetNumber":"3801","streetName":"Central Avenue
+        Northeast","municipality":"Albuquerque","neighbourhood":"Nob Hill","countrySecondarySubdivision":"Bernalillo","countrySubdivision":"NM","countrySubdivisionName":"New
+        Mexico","countrySubdivisionCode":"NM","postalCode":"87108","countryCode":"US","country":"United
+        States","countryCodeISO3":"USA","freeformAddress":"3801 Central Avenue Northeast,
+        Albuquerque, NM 87108","localName":"Albuquerque"},"position":{"lat":35.079835,"lon":-106.601564},"viewport":{"topLeftPoint":{"lat":35.08073,"lon":-106.60266},"btmRightPoint":{"lat":35.07894,"lon":-106.60047}},"entryPoints":[{"type":"main","position":{"lat":35.07951,"lon":-106.60159}}]}]}'
+  recorded_at: Thu, 16 May 2024 22:09:49 GMT
+recorded_with: VCR 6.2.0

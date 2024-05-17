@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
       resources :markets, only: [:index, :show] do 
         resources :vendors, only: [:index]
+        resources :nearest_atms, only: [:index]
       end
 
       resources :vendors, except: [:index]
