@@ -20,8 +20,9 @@ RSpec.describe "MarketVendors" do
       expect(data[:message]).to eq("Successfully added vendor to market")
     end
 
-    it "sad path 1" do 
+    it "returns a 404 status and error message when an invalid market_id or vendor_id is passed in" do 
       vendor = create(:vendor)
+      market = create(:market)
 
       post "/api/v0/market_vendors", params: { "market_id": "1212322", "vendor_id": vendor.id } 
 
@@ -31,22 +32,16 @@ RSpec.describe "MarketVendors" do
       expect(response.status).to eq(404)
       expect(data[:errors].first[:title]).to eq("Validation Failed: Market must exist")
 
-    end
-
-    it "sad path 1/2" do 
-      market = create(:market)
-
-      post "/api/v0/market_vendors", params: { "market_id": market.id, "vendor_id": "123" } 
+      post "/api/v0/market_vendors", params: { "market_id": market.id, "vendor_id": "123123123" } 
 
       data = JSON.parse(response.body, symbolize_names: true)
 
       expect(response).to_not be_successful
       expect(response.status).to eq(404)
       expect(data[:errors].first[:title]).to eq("Validation Failed: Vendor must exist")
-
     end
 
-    it 'it will raise an error if the market vendor already exists' do
+    it 'returns a 422 status and error message when trying to create a market vendor that already exists' do
       market = create(:market)
       vendor = create(:vendor)
       market_vendor = create(:market_vendor, vendor_id: vendor.id, market_id: market.id)
@@ -54,12 +49,12 @@ RSpec.describe "MarketVendors" do
       post "/api/v0/market_vendors", params: { "market_id": market.id, "vendor_id": vendor.id } 
             
       data = JSON.parse(response.body, symbolize_names: true)
-            
+
       expect(response).to_not be_successful
       expect(response.status).to eq(422)
       expect(data).to have_key(:errors)
       expect(data[:errors]).to be_an(Array)
-      expect(data[:errors].first[:title]).to eq("Validation failed: Market vendor asociation between market with market_id=#{market.id} and vendor_id=#{vendor.id} already exists")
+      expect(data[:errors].first[:title]).to eq("Validation failed: Market vendor association between market with market_id=#{market.id} and vendor_id=#{vendor.id} already exists")
     end
   end
 end
