@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 16 May 2024 22:09:49 GMT
+      - Fri, 17 May 2024 12:49:09 GMT
       Content-Type:
       - application/json; charset=utf-8
       Vary:
@@ -27,7 +27,7 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       Tracking-Id:
-      - '0848f1b7-f042-48b8-ac96-e3a48f70f73c'
+      - 2ed1f568-1c7d-46b9-b9d4-cbfac973f62e
       Access-Control-Expose-Headers:
       - Tracking-ID
       Server:
@@ -35,16 +35,16 @@ http_interactions:
       X-Tomtom-Processed-By:
       - westus2
       X-Tomtom-Message-Id:
-      - ecf2b218-2cfb-46f0-93ae-c3e94b463e3c
+      - 878af341-36cb-4f57-bfc6-c981226fcafe
       X-Tomtom-Upstream-Service-Time:
-      - '25'
+      - '61'
       X-Tomtom-Attempt-Count:
       - '1'
       Transfer-Encoding:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"summary":{"queryType":"NEARBY","queryTime":7,"numResults":5,"offset":0,"totalResults":100,"fuzzyLevel":1,"geoBias":{"lat":35.078,"lon":-106.5984}},"results":[{"type":"POI","id":"9KWO-063BDvZD5huSf6FnQ","score":99.9105834961,"dist":89.417349,"info":"search:ta:840359000787908-US","poi":{"name":"ATM","categorySet":[{"id":7397}],"categories":["cash
+      string: '{"summary":{"queryType":"NEARBY","queryTime":45,"numResults":5,"offset":0,"totalResults":100,"fuzzyLevel":1,"geoBias":{"lat":35.078,"lon":-106.5984}},"results":[{"type":"POI","id":"9KWO-063BDvZD5huSf6FnQ","score":99.9105834961,"dist":89.417349,"info":"search:ta:840359000787908-US","poi":{"name":"ATM","categorySet":[{"id":7397}],"categories":["cash
         dispenser"],"classifications":[{"code":"CASH_DISPENSER","names":[{"nameLocale":"en-US","name":"cash
         dispenser"}]}]},"address":{"streetNumber":"4100","streetName":"Central Avenue
         Southeast","municipality":"Albuquerque","neighbourhood":"Nob Hill","countrySecondarySubdivision":"Bernalillo","countrySubdivision":"NM","countrySubdivisionName":"New
@@ -75,5 +75,5 @@ http_interactions:
         Mexico","countrySubdivisionCode":"NM","postalCode":"87108","countryCode":"US","country":"United
         States","countryCodeISO3":"USA","freeformAddress":"3801 Central Avenue Northeast,
         Albuquerque, NM 87108","localName":"Albuquerque"},"position":{"lat":35.079835,"lon":-106.601564},"viewport":{"topLeftPoint":{"lat":35.08073,"lon":-106.60266},"btmRightPoint":{"lat":35.07894,"lon":-106.60047}},"entryPoints":[{"type":"main","position":{"lat":35.07951,"lon":-106.60159}}]}]}'
-  recorded_at: Thu, 16 May 2024 22:09:49 GMT
+  recorded_at: Fri, 17 May 2024 12:49:08 GMT
 recorded_with: VCR 6.2.0
