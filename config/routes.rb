@@ -20,8 +20,8 @@ Rails.application.routes.draw do
       end
 
       resources :vendors, except: [:index]
-      resources :market_vendors, only: [:create, :destroy]
-
+      resources :market_vendors, only: [:create]
+      delete "/market_vendors", to: "market_vendors#destroy"
     end
   end
 end

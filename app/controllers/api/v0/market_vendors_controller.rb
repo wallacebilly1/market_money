@@ -7,21 +7,13 @@ class Api::V0::MarketVendorsController < ApplicationController
   end
 
   def destroy 
-    market_vendor = MarketVendor.find(params[:id])
-    # if market_vendor.destroy
-    #   render json: { message: "" }, status: 204
-    # else 
-    #   require 'pry'; binding.pry
-    #   render json: { errors: [{title: "No MarketVendor with market_id=#{@market.id} AND vendor_id=#{@vendor.id} exists"}]}, status: 404
-    # end
+    @market = Market.find(params[:market_id])
+    @vendor = Vendor.find(params[:vendor_id])
+    market_vendor = MarketVendor.find_by(market_vendor_params)
 
-    if market_vendor.present? == false 
-      render json: { errors: [{title: "No MarketVendor with market_id=#{@market.id} AND vendor_id=#{@vendor.id} exists"}]}, status: 404
-    else 
-      market_vendor.destroy
-      render json: { message: "" }, status: 204
-    end
-    
+    market_vendor.destroy
+
+    render json: MarketVendorSerializer.new(market_vendor),status: 204
   end
 
   private
@@ -32,6 +24,10 @@ class Api::V0::MarketVendorsController < ApplicationController
   
   def not_found_response(exception)
     render json: ErrorSerializer.new(ErrorMessage.new(exception.message, 404))
-                 .serialize_json_market_vendor, status: :not_found
+                 .serialize_json, status: :not_found
+  end
+
+  def market_vendor_params
+    params.require(:market_vendor).permit(:market_id, :vendor_id)
   end
 end
