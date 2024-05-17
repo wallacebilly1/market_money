@@ -6,6 +6,24 @@ class Api::V0::MarketVendorsController < ApplicationController
     render json: { message: "Successfully added vendor to market" }, status: :created 
   end
 
+  def destroy 
+    market_vendor = MarketVendor.find(params[:id])
+    # if market_vendor.destroy
+    #   render json: { message: "" }, status: 204
+    # else 
+    #   require 'pry'; binding.pry
+    #   render json: { errors: [{title: "No MarketVendor with market_id=#{@market.id} AND vendor_id=#{@vendor.id} exists"}]}, status: 404
+    # end
+
+    if market_vendor.present? == false 
+      render json: { errors: [{title: "No MarketVendor with market_id=#{@market.id} AND vendor_id=#{@vendor.id} exists"}]}, status: 404
+    else 
+      market_vendor.destroy
+      render json: { message: "" }, status: 204
+    end
+    
+  end
+
   private
   def find_market_and_vendor
     @market = Market.find(params[:market_id])
